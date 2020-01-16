@@ -6,14 +6,17 @@ const TodoList = ({ errands, toggleCompleted }) => {
   
 
   return (
-    <div>{errands.map(item => (
+    <ol className='errandList'>{errands.map(item => (
+      <li>
       <Todo
         key={item.id}
         item={item}
         toggleCompleted={toggleCompleted}
-      />
+        />
+      </li>
     ))}
-    </div>
+      
+    </ol>
 );
 };
 

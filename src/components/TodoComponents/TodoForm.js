@@ -20,13 +20,13 @@ class TodoForm extends Component {
 
 	render() {
 		return (
-			<>
-				<form onSubmit={this.handleSubmit}>
-					<input onChange={this.handleChanges} type="text" name="task" value={this.state.newTask} />
-					<button>New Errand</button>
+			<section className='form1'>
+        <form onSubmit={this.handleSubmit} className='form'>
+					<input onChange={this.handleChanges} type="text" name="task" value={this.state.newTask} placeholder={'Enter New Errand'} />
+					<button className='btn1'>New Errand</button>
 				</form>
-				<button onClick={this.props.clearPurchased}>Clear Complete</button>
-			</>
+				<button onClick={this.props.clearCompleted} className='btn2'>Clear Complete</button>
+			</section>
 		);
 	}
 }

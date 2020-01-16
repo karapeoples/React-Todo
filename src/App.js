@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import './components/TodoComponents/Todo.css';
 
 const tasks =[
   {
@@ -59,7 +60,7 @@ class App extends Component {
     this.setState(newState);
   };
 
-  clearPurchased = () => {
+  clearCompleted = () => {
     const newState = {
       ...this.state,
       toDoList: this.state.toDoList.filter(item => {
@@ -74,10 +75,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Errand Tracker</h1>
-        <TodoList errands={this.state.toDoList} toggleCompleted={this.toggleCompleted} />
-        <TodoForm addNewTask={this.addNewTask} clearPurchased={this.clearPurchased}/>
+      <div className='appDiv'>
+        <div className='paper'>
+          <div className='pattern'>
+            <div className='notes'>
+          <h1>Errand Tracker</h1>
+            <TodoList errands={this.state.toDoList} toggleCompleted={this.toggleCompleted} />
+          </div>
+          </div>
+        </div>
+        <TodoForm addNewTask={this.addNewTask} clearCompleted={this.clearCompleted}/>
       </div>
     );
   }
