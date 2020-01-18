@@ -6,15 +6,37 @@ import './components/TodoComponents/Todo.css';
 const tasks =[
   {
     task: 'Organize Garage',
-    id: 1528817077286,
+    id: 1,
     completed: false
   },
   {
-    task: 'Bake Cookies',
-    id: 1528817084358,
+    task: 'Clean Living Room',
+    id: 2,
     completed: false
-  }
+  },
+  {
+    task: 'Buy Bleach',
+    id: 3,
+    completed: false
+  },
+  {
+    task: 'Vacuum Cabinets',
+    id: 4,
+    completed: false
+  },
+  {
+    task: 'Pick/Price Paint',
+    id: 5,
+    completed: false
+  },
+  {
+    task: 'Make Appointments',
+    id: 6,
+    completed: false
+  },
 ];
+
+
 
 
 class App extends Component {
@@ -44,6 +66,7 @@ class App extends Component {
     this.setState(newState);
   };
 
+
   toggleCompleted = id => {
     const newState = {
       ...this.state,
@@ -60,17 +83,19 @@ class App extends Component {
     this.setState(newState);
   };
 
+
   clearCompleted = () => {
     const newState = {
       ...this.state,
       toDoList: this.state.toDoList.filter(item => {
         return !item.completed;
-        //^^=== if (item.purchased === false) return true
       }),
     };
     this.setState(newState);
   };
 
+  
+  
 
 
   render() {
@@ -79,15 +104,17 @@ class App extends Component {
         <div className='paper'>
           <div className='pattern'>
             <div className='notes'>
-          <h1>Errand Tracker</h1>
-            <TodoList errands={this.state.toDoList} toggleCompleted={this.toggleCompleted} />
-          </div>
+              <h1>Errand Tracker</h1>
+              <TodoList errands={this.state.toDoList} toggleCompleted={this.toggleCompleted}  />
+            </div>
           </div>
         </div>
-        <TodoForm addNewTask={this.addNewTask} clearCompleted={this.clearCompleted}/>
+        <TodoForm addNewTask={this.addNewTask} clearCompleted={this.clearCompleted} />
       </div>
     );
-  }
-}
+  };
+};
 
 export default App;
+
+
