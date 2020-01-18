@@ -49,6 +49,7 @@ class App extends Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   //state changes below:
 
+  
 
   addNewTask = newTaskName => {
     const newState = {
@@ -95,9 +96,6 @@ class App extends Component {
   };
 
   
-  
-
-
   render() {
     return (
       <div className='appDiv'>
@@ -105,7 +103,7 @@ class App extends Component {
           <div className='pattern'>
             <div className='notes'>
               <h1>Errand Tracker</h1>
-              <TodoList errands={this.state.toDoList} toggleCompleted={this.toggleCompleted}  />
+              <TodoList errands={this.state.toDoList} toggleCompleted={this.toggleCompleted} />
             </div>
           </div>
         </div>

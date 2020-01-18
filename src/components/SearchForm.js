@@ -9,7 +9,7 @@ function SearchForm({ handleChange, searchTerm }) {
 			<form className='form'>
 				<input onChange={handleChange}
 					 type="text" name="task" value={searchTerm} placeholder='Search Tasks'
-					className='searchInput'/>
+						className='searchInput' />
 			</form >
 			</div>
 		)
