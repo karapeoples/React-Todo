@@ -9,7 +9,7 @@ const Li = style.div`
 `;
 
 
-const TodoList = ({ errands,  toggleCompleted }) => {
+const TodoList = ({ errands,  toggleCompleted , newTask}) => {
 
 	const [searchTerm, setSearchTerm] = useState("");
 
@@ -18,16 +18,21 @@ const TodoList = ({ errands,  toggleCompleted }) => {
 	
 
 	useEffect(() => {
-		const results = searchResults.filter(character => {
+		const results = errands.filter(character => {
+			console.log('Info Here', searchResults)
 			return character.task.toLowerCase().includes(searchTerm.toLowerCase());
 		});
-		setSearchResults(results);
+		setSearchResults(results); 
+		console.log(searchTerm);
 		//eslint-disable-next-line
 	}, [searchTerm]);
+	console.log(searchResults);
 
 	const handleChange = e => {
 		setSearchTerm(e.target.value);
 	};
+
+	
 
 	if (searchTerm.length === 0) {
 		return (
@@ -39,7 +44,7 @@ const TodoList = ({ errands,  toggleCompleted }) => {
 				<ol className="errandList">
 					{errands.map(item => (
 						<li>
-							<Todo key={item.id} item={item} toggleCompleted={toggleCompleted} searchTerm={searchTerm} />
+							<Todo key={item.id} item={item} toggleCompleted={toggleCompleted} searchTerm={item.task} />
 						</li>
 					))}
 				</ol>
@@ -56,7 +61,7 @@ const TodoList = ({ errands,  toggleCompleted }) => {
 					{searchResults.map(item => (
 						<li>
 							<Li>
-								<Todo key={item.id} item={item} toggleCompleted={toggleCompleted}  />
+								<Todo key={item.id} item={item} toggleCompleted={toggleCompleted} searchTerm={item.newTask}  />
 							</Li>
 						</li>
 					))}
