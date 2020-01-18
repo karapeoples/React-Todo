@@ -19,14 +19,11 @@ const TodoList = ({ errands,  toggleCompleted , newTask}) => {
 
 	useEffect(() => {
 		const results = errands.filter(character => {
-			console.log('Info Here', searchResults)
 			return character.task.toLowerCase().includes(searchTerm.toLowerCase());
 		});
 		setSearchResults(results); 
-		console.log(searchTerm);
 		//eslint-disable-next-line
 	}, [searchTerm]);
-	console.log(searchResults);
 
 	const handleChange = e => {
 		setSearchTerm(e.target.value);
